@@ -1,24 +1,22 @@
 <template>
-    <li class="felx felx-col mb-4 bg-gray-200 p-2 rounded-r-full transition-all message-line">
-        <div class="mb-2 text-start text-teal-700 message-username">
-            User 1
-        </div>
-        <div class="text-start text-sm message-text">
-            Hello, How are you?
-        </div>
-        <div class="texte-center mt-3 text-xs message-time">
-            <i class="fas fa-solid fa-clock">
-            3 hours ago
-            </i>
-        </div>
-    </li>
-
-
+    <Sender :message="message" v-if="auth.id === message.sender_id"/>
+    <Recevier :message="message" v-else/>
 </template>
 
 <script>
+import {inject} from "vue";
+import Sender from "@/chat/components/Sender.vue";
+import Recevier from "@/chat/components/Receiver.vue";
 export default{
-    name: "MessageLine"
+    name: "MessageLine",
+    components: {Sender, Recevier},
+    props : ["message"],
+    setup(){
+        const auth = inject("auth");
+        return{
+            auth
+        }
+    }
 }
 </script>
 

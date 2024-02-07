@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\MessagesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +33,10 @@ Route::post("/register",[RegisterController::class , "register"])->name("registe
 Route::post("/logout",[LoginController::class , "logout"])->name("logout");
 
 Route::get("/online-users",[UsersController::class , "getOnlineUsers"])->name("getOnlineUsers");
+
+Route::group(['prefix' => 'messages', 'middleware' => 'auth'], function(){
+    Route::get("/" , [MessagesController::class, "index"]);
+    Route::post("/" , [MessagesController::class, "store"])->name("messages.store");
+});
 
 
