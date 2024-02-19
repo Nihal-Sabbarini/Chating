@@ -9,12 +9,12 @@ class UsersController extends Controller
 {
     public function getOnlineUsers()
     {
-        if(!auth()->check())
-        {
-            return response()->json(data: ['users' => [] ]);
+        if(!auth()->check()) {
+            return response()->json(data: ['users' => []]);
         }
 
-        $users = User::where('id' , '!=' , auth()->user()->id)->get();
-        return response()->json(data: ['users' => $users ]);
+        $users = User::with('unseenMessages')->where('id', '!=', auth()->user()->id)->get();
+
+        return response()->json(data: ['users' => $users]);
     }
 }
