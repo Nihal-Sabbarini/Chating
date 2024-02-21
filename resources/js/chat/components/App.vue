@@ -3,16 +3,16 @@
         <h2>Select any user to chat with</h2>
         <ul class="mt-3 mx-3 list-none inline-block">
             <li v-for="user in users" v-bind:key="user.id" class="mb-4 inline">
-                <i class="fas fa-comment text-teal-700 px-2"></i>
-                <a href="#" class="text-teal-700 hover:text-teal-900 underline" v-on:click.prevent="handleUserClick(user)">{{user.name}}</a>
-                <span class="bg-red-500 text-white rounded-full px-2 absolute chat-badge-counter" v-if="user.unseen_messages.length > 0">
+                <i class="fas fa-comment text-blue-700 px-2"></i>
+                <a href="#" class="text-blue-700 hover:text-blue-900 underline" v-on:click.prevent="handleUserClick(user)">{{user.name}}</a>
+                <span class="bg-blue-500 text-black rounded-full px-2 absolute chat-badge-counter" v-if="user.unseen_messages.length > 0">
                     {{ user.unseen_messages.length }}
                 </span>
             </li>
         </ul>
     </div>
     <div v-else>
-        <p><a href="/login" class="text-teal-700 hover:text-teal-900 underline capitalize">Login to chat>>>></a></p>
+        <p><a href="/login" class="text-blue-900 hover:text-blue-900 underline capitalize">Login to chat>>>></a></p>
     </div>
 
     <!-- Chat panel containers: wrapper for all chat panels -->

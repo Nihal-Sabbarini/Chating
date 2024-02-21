@@ -29,17 +29,17 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <div class="flex-1 px-3 py-3 text-xl font-bold text-teal-800 brand">
+            <div class="flex-1 px-3 py-3 text-xl font-bold text-blue-800 brand">
                 <a href="/">Chat App</a>
             </div>
 
             <div class="px-6 py-3 sm:block">
             @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">
+                <a href="{{ url('/home') }}" class="text-sm text-blue-700 dark:text-gray-500 underline">
                     Hello {{auth()->user()->name}}
                 </a>
 
-                <a href="{{ route('logout') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <a href="{{ route('logout') }}" class="text-sm text-blue-700 dark:text-gray-500 underline" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
 
@@ -47,10 +47,10 @@
                     {{csrf_field()}}
                 </form>
             @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                <a href="{{ route('login') }}" class="text-sm text-blue-700 dark:text-blue-500 underline">Log in</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-blue-700 dark:text-blue-500 underline">Register</a>
                 @endif
             @endauth
             </div>

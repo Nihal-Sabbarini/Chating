@@ -1,9 +1,9 @@
 <template>
     <div class="flex flex-col inline-block relative mx-2.5 w-80 z-99999 ring chat-panel">
-        <header class="px-2 py-4 flex flex-row items-center bg-teal-700">
-            <i class="fas fa-solid fa-times shrink mx-2 text-white cursor-pointer" title="close"
+        <header class="px-2 py-4 flex flex-row items-center bg-blue-300">
+            <i class="fas fa-solid fa-times shrink mx-2 text-black cursor-pointer" title="close"
             @click="$emit('onCloseChat', user)"></i>
-            <div class="flex-2 grow basis-1/2 text-white">{{ user.name }}</div>
+            <div class="flex-2 grow basis-1/2 text-black">{{ user.name }}</div>
         </header>
         <section class="px-2 py-4 h-72 overflow-y-scroll chat-panel-content" ref="chatContentRef"
                  @scroll="handleChatScroll">
@@ -19,7 +19,7 @@
         <EmojiSelect v-if="emojiBtnClicked" @onSelect="handleSelectEmoji" @onClose="emojiBtnClicked = false" />
 
         <footer class="flex flex-row items-center chat-panel-footer">
-            <a href="#" @click.prevent="submitMessage" class="px-1 h-full bg-blue-700 text-white items-center flex">
+            <a href="#" @click.prevent="submitMessage" class="px-1 h-full bg-blue-300 text-black items-center flex">
                 <i class="fas fa-solid fa-paper-plane mx-1"></i>
                 Send
             </a>
@@ -44,9 +44,7 @@ export default {
     setup(props) {
 
         const { user } = props;
-
         const chatContentRef = ref(null);
-
         const messageContent = ref("");
         const userMessages = ref([]);
         let scrollPoint = ref(0);
@@ -122,7 +120,6 @@ export default {
             setTimeout(() => {
                 if(chatContentRef && chatContentRef.value) {
                     chatContentRef.value.scrollTop = chatContentRef.value.scrollHeight;
-
                     scrollPoint.value = chatContentRef.value.scrollTop;
                 }
             }, 300);

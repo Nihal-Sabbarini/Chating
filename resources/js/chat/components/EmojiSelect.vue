@@ -1,5 +1,5 @@
 <template>
-    <div class="ring-1 ring-gray-400 p-1 m-2 emoji-list">
+    <div class="ring-1 ring-blue-400 p-1 m-2 emoji-list">
         <i class="fas fa-solid fa-times text-gray-500 text-xs cursor-pointer" @click="$emit('onClose')"></i>
         <ul>
             <li class="inline m-1 cursor-pointer hover:ring-1" v-for="(emoji, index) in emojiList" v-html="emoji" :key="index" @click="$emit('onSelect', emoji)"></li>

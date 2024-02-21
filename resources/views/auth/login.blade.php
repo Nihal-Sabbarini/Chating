@@ -5,7 +5,7 @@
         <div class="grid grid-cols-6 gap-4">
             <div class="col-start-2 col-span-4">
                 <div class="px-4 sm:px-0">
-                    <h2 class="text-gray-900 text-4xl text-center">Login</h2>
+                    <h2 class="text-blue-900 text-4xl text-center">Login</h2>
                 </div>
             </div>
             <div class="col-start-2 col-span-4">
